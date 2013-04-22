@@ -1,4 +1,5 @@
-=== SysInfo ===
+## SysInfo
+
 Contributors: arcware, tommcfarlin
 Tags: system, system info, system information, php info
 License: GPLv2 or later
@@ -9,14 +10,15 @@ Stable tag: 1.1.0
 
 Useful system information about your WordPress install.
 
-== Description ==
+## Description 
+
 Use this plugin to view system information about your WordPress install. Things like the versions of WordPress, PHP, and MySQL, installed/activated plugins, the current theme, memory limit, allowable upload size, operating system, browser details, etc. This information would be very useful to many users and for people that need to provide support for their plugins and themes.
 
-= How To Use =
+## How To Use
 
 Once installed and activated, simply go to Tools > SysInfo in your admin; that will display your system information. Also on that page you'll see a button near the top labeled "PHP Info". Clicking this will open a new browser window that displays all PHP-related information for your system.
 
-== Installation ==
+## Installation 
 
 For automatic installation:
 
@@ -35,22 +37,8 @@ For manual installation:
 1. Login to your website and go to the Plugins section of your admin panel.
 1. Look for "SysInfo" and click Activate.
 
-== Screenshots ==
+For installation via git clone:
 
-1. Viewing system information.
-
-== Changelog ==
-
-= 1.1.0 =
-* Added markdown version of readme file (vidluther).
-* Added constants for plugin name, directory, and url which replaced the plugins_url call with a hardcoded string (davedonaldson).
-* Added directories and urls of content/plugins/uploads, as well as settings info for cookie domain, memory usage, script debug, save queries, autosave interval, and WP post revisions (japh).
-* Added info for WP options count, options size, and number of transients in options (vidluther).
-
-= 1.0.0 =
-* Initial version.
-
-== Upgrade Notice ==
-
-= 1.1.0 =
-We're fine. We're all fine here now, thank you. How are you?
+1. ssh to wp-content/plugins folder of your website
+1. git clone git://github.com/davedonaldson/WordPress-SysInfo.git sysinfo
+1. Log in to WordPress and activate the plugin.

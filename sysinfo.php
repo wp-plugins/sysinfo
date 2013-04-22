@@ -3,7 +3,7 @@
 Plugin Name: SysInfo
 Plugin URI: http://wordpress.org/extend/plugins/sysinfo/
 Description: Useful system information about your WordPress install.
-Version: 1.0.0
+Version: 1.1.0
 Author: Dave Donaldson
 Author URI: http://arcware.net
 License: http://www.gnu.org/licenses/gpl-2.0.html
@@ -13,7 +13,10 @@ class SysInfo {
 	function __construct() {
 		// Global constants first
 		define('SYSINFO_VERSION_KEY', 'sysinfo_version');
-		define('SYSINFO_VERSION_NUM', '1.0.0');
+		define('SYSINFO_VERSION_NUM', '1.1.0');
+		define('SYSINFO_PLUGIN_NAME', trim(dirname(plugin_basename(__FILE__)), '/'));
+		define('SYSINFO_PLUGIN_DIR', WP_PLUGIN_DIR . '/' . SYSINFO_PLUGIN_NAME);
+		define('SYSINFO_PLUGIN_URL', WP_PLUGIN_URL . '/' . SYSINFO_PLUGIN_NAME);
 		
 		// Activation/deactivation hooks
 		register_activation_hook(__FILE__, array($this, 'do_activation'));
@@ -93,7 +96,7 @@ class SysInfo {
 	}
 	
 	function add_admin_styles() {	
-		wp_enqueue_style('sysinfo-css', plugins_url('sysinfo/css/sysinfo.css'));
+		wp_enqueue_style('sysinfo-css', SYSINFO_PLUGIN_URL . '/css/sysinfo.css');
 	}
 
 	function add_action_links($links, $file) {
@@ -198,6 +201,28 @@ class SysInfo {
 	
 	function get_active_plugins() {
 		return get_option('active_plugins', array());
+	}
+	
+	function get_memory_usage() {
+		return round(memory_get_usage() / 1024 / 1024, 2);
+	}
+
+	function get_all_options() {
+		// Not to be confused with the core deprecated get_alloptions
+		
+		return wp_load_alloptions();
+	}
+
+	function get_transients_in_options($options) {
+		$transients = array();
+
+		foreach ($options as $name => $value) {
+			if (stristr($name, 'transient')) {
+				$transients[$name] = $value;
+			}
+		}
+		
+		return $transients;
 	}
 }
 
