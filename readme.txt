@@ -1,11 +1,11 @@
 === SysInfo ===
-Contributors: arcware, tommcfarlin
+Contributors: arcware, leogopal, tommcfarlin
 Tags: system, system info, system information, php info
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Requires at least: 3.4
-Tested up to: 3.5.1
-Stable tag: 1.1.0
+Tested up to: 4.1.2
+Stable tag: 1.1.1
 
 Useful system information about your WordPress install.
 
@@ -40,6 +40,9 @@ For manual installation:
 1. Viewing system information.
 
 == Changelog ==
+
+= 1.1.1 =
+* Minor refactoring.
 
 = 1.1.0 =
 * Added markdown version of readme file (vidluther).
