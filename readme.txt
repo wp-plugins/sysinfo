@@ -1,5 +1,5 @@
 === SysInfo ===
-Contributors: leogopal, tommcfarlin, arcware
+Contributors: leogopal, tommcfarlin, richymilo, arcware
 Author:  leogopal
 Tags: system, system info, system information, php info
 License: GPLv2 or later
